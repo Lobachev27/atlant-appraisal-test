@@ -1,0 +1,78 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.title{
+  position: relative;
+  text-transform: uppercase;
+  line-height: 1.4em;
+  &-info{
+    & span{
+      color: $red;
+    }
+  }
+  &-services{
+    color: $white;
+    & span{
+      &.line{
+        position: relative;
+        top: -3px;
+      }
+    }
+  }
+  &-h2{
+    font-size: 40px;
+    @media screen and (min-width: $tablet1) {
+      font-size: 50px;
+    }
+    @media screen and (min-width: $desktop1) {
+      font-size: 60px;
+    }
+  }
+  &-h3{
+    font-size: 30px;
+    @media screen and (min-width: $tablet1) {
+      font-size: 40px;
+    }
+    @media screen and (min-width: $desktop1) {
+      font-size: 50px;
+    }
+  }
+  &-one{
+    margin-bottom: 20px;
+    @media screen and (min-width: $tablet1) {
+      margin-bottom: 30px;
+    }
+    @media screen and (min-width: $desktop1) {
+      margin: 110px 0 70px;
+    }
+  }
+  &-two{
+    margin: 40px 0 20px;
+    @media screen and (min-width: $tablet1) {
+      margin: 60px 0 30px;
+    }
+    @media screen and (min-width: $desktop1) {
+      margin: 160px 0 50px;
+    }
+  }
+  &-three{
+    margin: 40px 0 20px;
+    @media screen and (min-width: $tablet1) {
+      margin: 60px 0 30px;
+    }
+    @media screen and (min-width: $desktop1) {
+      margin: 0 0 40px;
+    }
+    &:after{
+      @media screen and (min-width: $desktop1) {
+        content: "";
+        height: 1px;
+        background-color: $black;
+        width: 420px;
+        position: absolute;
+        left: 105%;
+        top: 50%;
+      }
+    }
+  }
+}

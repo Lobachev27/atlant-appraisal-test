@@ -1,3 +1,174 @@
 @import "partials/params";
 @import "partials/mixins";
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  position: relative;
+  font-family: 'Oswald', sans-serif;
+  background-color: $white;
+  color: $black;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+main{
+  position: relative;
+  width: 100%;
+  background-color: $white;
+  overflow: hidden;
+  z-index: 1;
+  flex-grow: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p{
+  color: $black;
+  font-weight: 400;
+  line-height: 1.2em;
+  padding: 0;
+  margin: 0;
+}
+
+div{
+  color: $black;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: $black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1140px;
+  padding: 0 15px;
+  margin: 0 auto;
+  z-index: 2;
+  @media screen and (min-width: $tablet1) {
+    padding: 0 30px;
+  }
+  @media screen and (min-width: $desktop1) {
+    padding: 0;
+  }
+}
+
+.ov-hid{
+  overflow-y: hidden !important;
+}
+
+.modalDialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(12, 12, 12, 0.85);
+  z-index: 88888888;
+  transition: opacity 0.3s ease-in;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  &#videoModal{
+    & .videoModal{
+      &__wrapper{
+        width: calc(100% - 30px);
+        max-width: initial;
+        height: 52.5vw;
+        position: relative;
+        margin: 0 auto;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 0;
+        background-color: $black;
+        border: 1px solid $green;
+        box-shadow: 0 0 20px 10px $black;
+        @media screen and (min-width: $tablet1) {
+          width: 540px;
+          height: 307px;
+        }
+        @media screen and (min-width: $tablet2) {
+          width: 838px;
+          height: 472px;
+        }
+      }
+      &__box{
+        position: relative;
+        height: calc(52.5vw - 2px);
+        overflow: hidden;
+        @media screen and (min-width: $tablet1) {
+          height: 304px;
+        }
+        @media screen and (min-width: $tablet2) {
+          height: 470px;
+        }
+      }
+      &__video{
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.modalDialog.show {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modalDialog__wrapper {
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 60px 70px 40px;
+  background-color: $black;
+  border: 1px solid $red;
+  box-shadow: 0 0 20px 10px $black;
+}
+
+.close {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: -30px;
+  background: url("../img/cross.svg") no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  opacity: 0.7;
+  &.two{
+    z-index: 99999999999;
+  }
+  &:hover{
+    transition: all 0.3s;
+    opacity: 1;
+  }
+}

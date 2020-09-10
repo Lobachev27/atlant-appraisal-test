@@ -1,0 +1,345 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.services{
+  position: relative;
+  padding: 60px 0;
+  background: url("../img/services.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+  @media screen and (min-width: $tablet1) {
+    padding: 80px 0;
+  }
+  @media screen and (min-width: $desktop1) {
+    padding: 100px 0;
+  }
+  &__wrapper{
+    position: relative;
+  }
+  &__list{
+    display: none;
+    &.visible{
+      display: block;
+      margin: 40px 0;
+    }
+  }
+  &__item{
+    position: relative;
+    width: 100%;
+    border: 2px solid $white;
+    border-bottom: none;
+    padding: 30px 25px;
+    margin-bottom: 25px;
+    transition: 0.5s;
+    @media screen and (min-width: $tablet1) {
+      padding: 30px;
+    }
+    @media screen and (min-width: $desktop1) {
+      padding: 50px 30px;
+      margin-bottom: 40px;
+    }
+    &:hover{
+      background-color: $white;
+      transition: 0.5s;
+      & .services__name{
+        color: $black;
+        transition: 0.5s;
+      }
+      & .services__triangle{
+        opacity: 0;
+        width: 0;
+        margin: 0;
+        transition: 0.5s;
+      }
+      & .services__icon{
+        transition: 0.5s;
+        &.document{
+          background: url("../img/document-hover.svg") no-repeat;
+          background-position: center;
+          background-size: contain;
+        }
+        &.rotate{
+          background: url("../img/rotate-hover.svg") no-repeat;
+          background-position: center;
+          background-size: contain;
+        }
+      }
+    }
+    &.short{
+      @media screen and (min-width: $tablet1) {
+        width: calc(50% - 12px);
+      }
+    }
+    &.middle{
+      @media screen and (min-width: $tablet1) {
+        width: calc(50% - 12px);
+      }
+    }
+    &.long{
+      @media screen and (min-width: $tablet1) {
+        width: 100%;
+      }
+    }
+  }
+  &__border{
+    position: absolute;
+    left: -2px;
+    bottom: -2px;
+    right: -2px;
+    height: 2px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    &:before {
+      content: '';
+      height: 2px;
+      background: $white;
+      width: calc(100% - 30px);
+    }
+    &:after {
+      content: '';
+      height: 2px;
+      background: $white;
+      min-width: 30px;
+    }
+  }
+  &__triangle {
+    position: relative;
+    width: 20px;
+    height: 18px;
+    background: url("../img/triangle.svg") no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: 0 12px;
+    transition: 0.5s;
+    transform: rotate(0deg);
+    -webkit-animation: rotate-triangle 7s linear infinite;
+    -moz-animation: rotate-triangle 7s linear infinite;
+    -o-animation: rotate-triangle 7s linear infinite;
+    animation: rotate-triangle 7s linear infinite;
+    @-webkit-keyframes rotate-triangle {
+      from {
+        -webkit-transform: rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+    @-moz-keyframes rotate-triangle {
+      from {
+        -moz-transform: rotate(0deg);
+      }
+      to {
+        -moz-transform: rotate(360deg);
+      }
+    }
+    @-o-keyframes rotate-triangle {
+      from {
+        -o-transform: rotate(0deg);
+      }
+      to {
+        -o-transform: rotate(360deg);
+      }
+    }
+    @keyframes rotate-triangle {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+  &__name{
+    font-size: 18px;
+    line-height: 1.5em;
+    text-transform: uppercase;
+    color: $white;
+    max-width: 90%;
+    transition: 0.5s;
+    @media screen and (min-width: $tablet1) {
+      font-size: 22px;
+      max-width: 80%;
+    }
+    @media screen and (min-width: $desktop1) {
+      font-size: 28px;
+    }
+  }
+  &__icon{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    transition: 0.5s;
+    @media screen and (min-width: $tablet1) {
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+    }
+    @media screen and (min-width: $desktop1) {
+      top: 25px;
+      right: 25px;
+      width: 50px;
+      height: 50px;
+    }
+    &.document{
+      background: url("../img/document.svg") no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+    &.rotate{
+      background: url("../img/rotate.svg") no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+  }
+  &__link{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+  & .row{
+    @media screen and (min-width: $tablet1) {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      @media screen and (min-width: $desktop1) {
+        justify-content: space-between;
+      }
+    }
+    &-2{
+      @media screen and (min-width: $tablet1) {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        width: 100%;
+      }
+      & .services__item{
+        &.short{
+          @media screen and (min-width: $desktop1) {
+            width: calc(50% - 20px);
+          }
+        }
+      }
+    }
+    &-3{
+      @media screen and (min-width: $tablet1) {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        width: 100%;
+      }
+      & .services__item{
+        &.short{
+          @media screen and (min-width: $desktop1) {
+            width: calc(33.33% - 24px);
+          }
+        }
+        &.middle{
+          @media screen and (min-width: $desktop1) {
+            width: calc(66.67% - 13px);
+          }
+        }
+      }
+    }
+  }
+  & .col{
+    &-1{
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      width: 100%;
+      @media screen and (min-width: $tablet1) {
+        flex-direction: row;
+      }
+      @media screen and (min-width: $desktop1) {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        width: calc(33.33% - 24px);
+      }
+      & .services__item.short{
+        @media screen and (min-width: $desktop1) {
+          width: 100%;
+          &:first-child{
+            flex-grow: 1;
+          }
+        }
+      }
+    }
+    &-2{
+      width: 100%;
+      @media screen and (min-width: $desktop1) {
+        width: calc(66.67% - 13px);
+      }
+    }
+  }
+  &__nav{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media screen and (min-width: $desktop1) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  &__division{
+    font-size: 16px;
+    text-transform: uppercase;
+    color: $white;
+    padding: 7px 0;
+    border-bottom: 3px solid transparent;
+    opacity: 0.8;
+    transition: 0.3s;
+    @media screen and (min-width: $tablet1) {
+      font-size: 18px;
+      padding: 10px 0;
+    }
+    @media screen and (min-width: $desktop1) {
+      font-size: 20px;
+    }
+    &.current{
+      opacity: 1;
+      border-bottom: 3px solid $white;
+      transition: 0.3s;
+    }
+  }
+  &__arrow{
+    display: none;
+    @media screen and (min-width: $desktop2) {
+      display: block;
+      position: absolute;
+      top: 40%;
+      width: 60px;
+      height: 60px;
+      outline: none;
+      transition: all 0.3s;
+      opacity: 0.8;
+      cursor: pointer;
+      &:hover{
+        opacity: 1;
+        transition: all 0.3s;
+      }
+    }
+  }
+  &__prev{
+    background: url("../img/arrow.svg") no-repeat;
+    background-position: center;
+    background-size: cover;
+    left: -150px;
+  }
+  &__next{
+    background: url("../img/arrow.svg") no-repeat;
+    background-position: center;
+    background-size: cover;
+    transform: rotate(180deg);
+    right: -150px;
+  }
+}
